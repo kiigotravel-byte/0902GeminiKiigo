@@ -178,7 +178,7 @@ function sendMessage() {
 
   try {
     // ✅ 呼叫後端
-    const res = await fetch('http://localhost:3000/chat', {
+    const res = await fetch('https://kiigo-ai-api.onrender.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message })
