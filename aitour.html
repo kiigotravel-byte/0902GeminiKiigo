@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <script src="https://www.youtube.com/iframe_api"></script>
+  <meta charset="UTF-8">
+  <title>AI 實境旅遊導覽 | Kiigo</title>
+  <link rel="stylesheet" href="CSS/aistyle.css">
+
+</head>
+
+<style>
+/* 👇 AI 導覽頁面專用樣式 */
+body.star-bg {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(ellipse at center, #0d1b2a 0%, #000000 100%);
+  color: #ffffff;
+  background-image: url('images/aibg.png'); /* 確保這張圖真的存在 */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style>
+
+
+<body class="star-bg">
+<div class="logo-container">
+  <img src="images/logo1.png" alt="Kiigo Logo">
+</div>
+
+  <header>
+    <h1>Kiigo自由行帶你環遊世界</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" target="_blank">首頁</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>探索世界，從Kiigo開始 ✨</h2>
+    <p>選擇一個地點，開始你的 AI 導覽之旅</p>
+  </section>
+
+  <section class="location-selector">
+    <label for="place">選擇地點：</label>
+    <select id="place">
+      <option value="tokyo">東京</option>
+      <option value="paris">巴黎</option>
+      <option value="newyork">紐約</option>
+    </select>
+    <button onclick="loadStreetView()">開始導覽</button>
+  </section>
+
+<section class="map-preview">
+
+  <!-- ✅ 沉浸式影片容器（初始隱藏） -->
+  <section id="videoPreview" style="display: none;">
+    <iframe
+      id="videoFrame"
+      width="100%"
+      height="500"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </section>
+
+  <!-- ✅ Google 街景容器 -->
+  <iframe
+    id="streetViewFrame"
+    width="100%"
+    height="500"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+
+
+  <section class="description">
+    <h3>導覽說明</h3>
+    <p id="placeDescription">請選擇地點開始導覽。</p>
+  </section>
+
+ <!-- 🤖 AI 聊天機器人 -->
+  
+  <div class="chat-widget">
+    <button class="chat-button" onclick="toggleChat()">
+      🤖
+    </button>
+    
+    <div class="chat-container" id="chatContainer">
+      <div class="chat-header">
+        Kiigo AI 旅遊助手
+        <button class="close-chat" onclick="toggleChat()">×</button>
+      </div>
+      
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          你好！我是Kiigo AI旅遊助手 🌟<br>
+          我可以幫你：<br>
+          • 推薦景點和美食<br>
+          • 規劃旅遊路線<br>
+          • 介紹當地文化<br>
+          • 回答旅遊問題<br><br>
+          有什麼想了解的嗎？
+        </div>
+      </div>
+      
+      <div class="chat-input-container">
+        <input 
+          type="text" 
+          class="chat-input" 
+          id="chatInput" 
+          placeholder="輸入你的旅遊問題..."
+          onkeypress="handleKeyPress(event)"
+        >
+        <button class="send-button" onclick="sendMessage()">
+          ➤
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Kiigo. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

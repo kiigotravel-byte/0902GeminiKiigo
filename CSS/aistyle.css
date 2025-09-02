@@ -1,0 +1,368 @@
+/* 🌌 背景與字型設定 */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+  background-color: #0a0f1c;
+  background-image: url('images/aibg.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #f0f0f0;
+}
+
+/* 🔰 左上角 Kiigo Logo 區塊 */
+.logo-container {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  z-index: 1000;
+}
+
+.logo-container img {
+  height: 70px;
+  width: auto;
+}
+
+/* 🧭 Header 區塊 */
+header {
+  padding: 80px 20px 40px;
+  text-align: center;
+  background-color: rgba(10, 15, 28, 0.6);
+  border-bottom: 1px solid #1e2a3a;
+  height: 90px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color:  #e0edef;
+;
+  margin: 0;
+}
+
+.hero {
+  text-align: center;
+  padding: 5px 10px;
+}
+
+
+/* 📍 地點選擇區塊 */
+.location-selector {
+  text-align: center;
+  padding: 30px;
+}
+
+.location-selector label {
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+
+.location-selector select {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #1c2636;
+  color: #fff;
+  border: 1px solid #00bcd4;
+  border-radius: 5px;
+}
+
+.location-selector button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #00bcd4;
+  color: #0a0f1c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.location-selector button:hover {
+  background-color: #0097a7;
+}
+
+/* 🗺️ 地圖預覽區塊 */
+.map-preview {
+  padding: 0 40px ;
+  margin: 0;
+}
+
+.skip-button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff9800;
+  color: #0a0f1c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
+}
+
+.skip-button:hover {
+  background-color: #e68900;
+}
+
+iframe {
+  width: calc(100vw - 90px); /* 左右各留空間 */
+  max-width: none;
+  height: 600px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 188, 212, 0.3);
+  display: block;
+  margin: 0 auto; /* 讓地圖水平置中 */
+}
+
+/* 📖 說明區塊 */
+.description {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  line-height: 1.8;
+}
+
+.description h2 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+/* 📎 Footer 區塊 */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+  border-top: 1px solid #1e2a3a;
+  margin-top: 60px;
+}
+
+
+/* 動畫效果 */
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* === 🤖 AI 聊天機器人樣式 === */
+.chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chat-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 188, 212, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 24px;
+}
+
+.chat-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(0, 188, 212, 0.6);
+}
+
+.chat-container {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 350px;
+  height: 500px;
+  background: rgba(10, 15, 28, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid #00bcd4;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.chat-header {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+}
+
+.close-chat {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  word-wrap: break-word;
+  animation: messageSlide 0.3s ease;
+}
+
+.user-message {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.bot-message {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+  border: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-input-container {
+  padding: 15px;
+  border-top: 1px solid rgba(0, 188, 212, 0.3);
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #00bcd4;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+.chat-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.send-button {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.send-button:hover {
+  transform: scale(1.1);
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border-bottom-left-radius: 5px;
+  max-width: 80px;
+  align-self: flex-start;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00bcd4;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .chat-container {
+    width: calc(100vw - 40px);
+    height: 60vh;
+    bottom: 80px;
+    right: 20px;
+    left: 20px;
+  }
+
+  .chat-widget {
+    bottom: 20px;
+    right: 20px;
+  }
+}

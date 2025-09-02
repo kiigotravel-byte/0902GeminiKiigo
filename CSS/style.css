@@ -1,0 +1,752 @@
+/*Google fonts 載入*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+/*Google fonts 載入結束*/
+
+/*歸零區*/
+html,body,header,footer,menu,nav,ul,ol,li,h1,h2,h3,h4,h5,h6,p,a,aside,main,article,img,div,span,table,tr,td,th,hr,b,strong,i,em,u,ins,del,s,mark,sup,sub{
+    padding: 0; /*內距*/
+    margin: 0;  /*外距*/
+    box-sizing: border-box; /*以盒子設定為邊界*/
+    list-style: none;       /*項目符號及編號*/
+    text-decoration: none;  /*文字底線*/
+    color: inherit;         /*文字色彩 => 繼承*/
+    font-family: "Noto Sans TC", sans-serif;
+}
+html{
+    scroll-behavior: smooth;/*緩慢滑動*/
+}
+img{
+    width: 100%;
+    vertical-align: bottom;/*處理圖片預設下方露白，將露白處理*/
+}
+/*歸零結束區*/
+
+/* 全域變數設定 */
+:root{  
+    --textDarkColor--: #444444;
+    --textMiddleColor--: #C1C1C1;
+    --textLightColor--: #F5F5F5;
+    --bgDarkColor--: #1E1E1E;
+    --bgLightColor--: #2B2B2B;
+    --mainColor--: #5292f3;
+    --mainAlphaColor--: #c9ceca88;
+    --alphaBlack--: #00000088;
+    --shadow--: 2px 2px 2px gray;
+    --transition--: all 800ms ease;
+}
+/* 全域變數設定結束 */
+/* 預設樣式 */
+.text-center{
+    text-align: center;
+}
+.text-justify{
+    text-align: justify;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+*[class^=btn]{
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 2em;
+    color: var(--textLightColor--);
+    background-color: var(--mainColor--);
+    padding: 0 1rem;
+    margin: 0.25rem 0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: var(--shadow--);
+    cursor: pointer;
+}
+*[class^=btn]:hover{
+    filter: brightness(1.1);
+}
+*[class^=btn]:active{
+    box-shadow: var(--shadow--) inset;
+}
+.btn-line{
+    border: 2px solid var(--mainColor--);
+    color: var(--mainColor--);
+    background-color: transparent;
+}
+.btn-success{
+    background-color: darkgreen;
+}
+
+/*裝置寬度設定*/
+/*預設格點(手機板)*/
+.grid-1{
+    width: calc(100% / 12 * 1);
+}
+.grid-2{
+    width: calc(100% / 12 * 2);
+}
+.grid-3{
+    width: calc(100% / 12 * 3);
+}
+.grid-4{
+    width: calc(100% / 12 * 4);
+}
+.grid-5{
+    width: calc(100% / 12 * 5);
+}
+.grid-6{
+    width: calc(100% / 12 * 6);
+}
+.grid-7{
+    width: calc(100% / 12 * 7);
+}
+.grid-8{
+    width: calc(100% / 12 * 8);
+}
+.grid-9{
+    width: calc(100% / 12 * 9);
+}
+.grid-10{
+    width: calc(100% / 12 * 10);
+}
+.grid-11{
+    width: calc(100% / 12 * 11);
+}
+.grid-12{
+    width: calc(100% / 12 * 12);
+}
+
+/*=================================== 手機板設計開始 ===================================*/
+/*Header 設計*/
+header{
+    width: 100%;
+    height: 65px;
+}
+header .flex{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 20;
+}
+header .flex #logo{
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    text-align: left;/*針對iphone*/
+    padding-left: 1rem;/*針對iphone*/
+}
+header .flex #logo img{
+    width: auto;
+    height: 80px;
+    vertical-align: middle;
+}
+header .flex menu{
+    width: 100%;
+    height: 0px;
+    background-color: var(--mainAlphaColor--);
+    backdrop-filter: blur(5px);
+    line-height: 65px;
+    text-align: center;
+    overflow: hidden;
+    transition: var(--transition--);
+}
+header .flex menu.none{
+    height: 325px;
+}
+header .flex menu ul li a{
+    display: block;
+    transition: var(--transition--);
+}
+header .flex menu ul li:hover a{
+    background-color: var(--mainColor--);
+    color: var(--textLightColor--);
+}
+
+header .flex nav{
+    width: 2rem;
+    height: 1rem;
+    position: absolute;
+    top: calc(32.5px - 0.5rem);
+    right: 1rem;
+    cursor: pointer;
+}
+header .flex nav .bar{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    transition: var(--transition--);
+}
+header .flex nav .bar:nth-of-type(1){
+    top: 0;
+}
+header .flex nav .bar:nth-of-type(2){
+    top: calc(0.5rem - 1px);
+}
+header .flex nav .bar:nth-of-type(3){
+    top: calc(0.5rem - 1px);
+}
+header .flex nav .bar:nth-of-type(4){
+    bottom: 0;
+}
+header .flex nav .bar:nth-of-type(1).none{
+    opacity: 0;
+}
+header .flex nav .bar:nth-of-type(2).none{
+    transform: rotate(30deg);
+}
+header .flex nav .bar:nth-of-type(3).none{
+    transform: rotate(-30deg);
+}
+header .flex nav .bar:nth-of-type(4).none{
+    opacity: 0;
+}
+
+/*Slide 設計*//*Slide 設計*//*Slide 設計*//*Slide 設計*//*Slide 設計*/
+#slide{
+    width: 100%;
+    height: calc(100vh - 65px);
+}
+#slide .box{
+    width: 100%;
+    max-width: 1280px;/*控制Slide大小*/
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+#slide .box .pic{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*第一章空白*/
+    /* transform: translateX(100%); */
+    background-size: cover;
+    background-position: center;
+    animation: sliding 25s linear infinite;
+}
+
+#slide .box .pic:nth-of-type(1){
+    background-image: url(../images/slide1.png);
+}
+#slide .box .pic:nth-of-type(2){
+    background-image: url(../images/slide2.png);
+    animation-delay: 5s;
+}
+#slide .box .pic:nth-of-type(3){
+    background-image: url(../images/slide3.png);
+    animation-delay: 10s;
+}
+#slide .box .pic:nth-of-type(4){
+    background-image: url(../images/slide4.png);
+    animation-delay: 15s;
+}
+#slide .box .pic:nth-of-type(5){
+    background-image: url(../images/slide5.png);
+    animation-delay: 20s;
+}
+
+@keyframes sliding{
+    0%{
+        transform: translateX(100%);
+        z-index: 1;
+    }
+    4%{
+        transform: translateX(0);
+        z-index: 10;
+    }
+    20%{
+        transform: translateX(0);
+        z-index: 10;
+    }
+    24%{
+        transform: translateX(-100%);
+        z-index: 10;
+    }
+    25%{
+        transform: translateX(-100%);
+        z-index: -1;
+    }
+    26%{
+        transform: translateX(100%);
+        z-index: -1;
+    }
+}
+
+#slide .box .push{
+    width: 100%;
+    height: 100%;
+    background-color: var(--alphaBlack--);
+    color: var(--textLightColor--);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+}
+#slide .box .push .item{
+    margin: 0 10vw;
+    line-height: 1.8em;
+}
+#slide .box .push .item p{
+    margin: 0.5em 0;
+}
+
+
+
+
+/*About設計*//*About設計*//*About設計*//*About設計*//*About設計*//*About設計*/
+#about{
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    color: var(--textDarkColor--);
+}
+#about .flex{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    max-width: 1280px;
+    margin: 0 auto;
+    justify-content: center;
+    align-content:space-evenly;
+}
+#about .flex .grid-10{
+    padding: 1em 0;
+}
+
+#about .flex .grid-10 i{
+    color: var(--mainColor--);
+}
+
+#about .flex .grid-10 p{
+    padding-bottom: 1em;
+}
+
+#about .flex .grid-10 h2{
+    padding: 0.5em 0;
+}
+
+#about .flex .grid-10 h3{
+    padding: 0.5em 0;
+}
+
+/*product設計*//*product設計*//*product設計*//*product設計*//*product設計*/
+
+#product {width: 100%;}
+#product .flex{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;}
+
+#product .flex .banner{
+    background-color: var(--mainColor--);
+    color: var(--textLightColor--);
+    text-align: center;
+    padding: 3em 1em;}
+
+#product .flex .grid-6{
+    overflow: hidden;
+    position: relative;}
+
+    #product .flex .grid-6 h3{
+    width: 100%;
+    height: 2.5em;
+    line-height: 2.5em;
+    text-align: center;
+    color: var(--textLightColor--);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: var(--alphaBlack--);
+}
+
+/*HOT設計*//*HOT設計*//*HOT設計*//*HOT設計*//*HOT設計*//*HOT設計*//*HOT設計*/
+#hot{
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    color: var(--textDarkColor--);
+}
+
+#hot .flex{
+    width: 100%;
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+#hot .flex .grid-10{
+    padding: 4rem 2rem 2rem;
+}
+#hot .flex .grid-10 h3{
+    padding: 0.5em 0;
+}
+#hot .flex .grid-10 p{
+    padding-bottom: 1em;
+}
+
+/*LINK設計*//*LINK設計*//*LINK設計*//*LINK設計*//*LINK設計*//*LINK設計*/
+
+#link{
+    width: 100%;
+    height: 100vh;}
+#link .flex{
+    width: 100%;
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-image: url(../images/YT-PIC2png.png);
+    background-size: cover;
+    background-position: center;
+    justify-content: flex-end;
+}
+#link .flex .grid-12{
+    height: 100%;
+    background-color: var(--alphaBlack--);
+    color: var(--textMiddleColor--);
+    display: flex;
+    padding: 0 3em;
+    align-items: center;
+}
+#link .flex .grid-12 p{
+    padding: 1em 0;
+}
+
+/*VIDEO設計*//*VIDEO設計*//*VIDEO設計*//*VIDEO設計*//*VIDEO設計*//*VIDEO設計*/
+#video{
+    width: 100%;
+}
+#video .flex{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+#video .flex .box{
+    line-height: 3em;
+    padding: 3em 1em;
+    color: var(--textDarkColor--);
+}
+#video .flex .grid-7{
+    overflow: hidden;
+    position: relative;
+    font-size: 14px;
+}
+#video .flex .grid-7 .push{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--alphaBlack--);
+    color: var(--textLightColor--);
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video .flex .grid-7 .push .item{
+    text-align: justify;
+}
+
+/*手機Contact 設計*//*手機Contact 設計*//*手機Contact 設計*/
+#contact{
+    width: 100%;}
+
+#contact .flex{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: var(--bgLightColor--);
+    color: var(--textLightColor--);
+    padding: 4em 0;}
+
+    #contact .flex .grid-10{
+    padding: 3em 2em;}
+
+#contact .flex .grid-10 h3{
+    line-height: 3em;}
+
+#contact .flex .grid-10 p{
+    padding-bottom: 1em;
+    text-align: justify;}
+
+#contact .flex .grid-10 a{
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 2em;
+    display: block;
+    color: var(--mainColor--);}
+
+#contact hr{
+    border: 1px solid black;
+    margin: 1.2em 0;
+}
+#contact table{
+    width: 100%;
+}
+#contact .flex .grid-10 table tr td a{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--textLightColor--);
+}
+#contact table tr td:nth-of-type(1){
+    width: 2.5em;
+    text-align: center;}
+
+/*Footer設計*//*Footer設計*//*Footer設計*//*Footer設計*//*Footer設計*/
+footer{width:100%;
+}
+
+footer .box{width:100%;
+max-width:1280px;
+margin:0 auto;
+background-color: var(--bgDarkColor--);
+color:var(--textMiddleColor--);
+padding: 1em;
+line-height: 26px;
+}
+
+/*Gotop設計*//*Gotop設計*//*Gotop設計*//*Gotop設計*//*Gotop設計*//*Gotop設計*/
+#gotop{
+    display: block;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    line-height: 3em;
+    background-color: var(--mainAlphaColor--);
+    color: var(--textLightColor--);
+    border-radius: 50%;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 50;
+    cursor: pointer;
+    transition: var(--transition--);
+}
+#gotop:hover{
+    background-color: var(--mainColor--);
+}
+
+
+/*Load設計*//*Load設計*//*Load設計*//*Load設計*//*Load設計*//*Load設計*/
+#load{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--mainAlphaColor--);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    line-height: 50vh;
+}
+#load img{
+    width: 100px;
+    animation: simple-rotate 2s linear infinite;
+}
+
+@keyframes simple-rotate{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+     /*=================================== 平板(直向)板設計開始 ===================================*/
+    #video .flex .grid-7{
+        font-size: 16px;
+    }
+
+@media only screen and (min-width: 1200px){
+    /*預設格點(平板橫向板OR筆電板)*/
+    .grid-md-1{
+        width: calc(100% / 12 * 1);
+    }
+    .grid-md-2{
+        width: calc(100% / 12 * 2);
+    }
+    .grid-md-3{
+        width: calc(100% / 12 * 3);
+    }
+    .grid-md-4{
+        width: calc(100% / 12 * 4);
+    }
+    .grid-md-5{
+        width: calc(100% / 12 * 5);
+    }
+    .grid-md-6{
+        width: calc(100% / 12 * 6);
+    }
+    .grid-md-7{
+        width: calc(100% / 12 * 7);
+    }
+    .grid-md-8{
+        width: calc(100% / 12 * 8);
+    }
+    .grid-md-9{
+        width: calc(100% / 12 * 9);
+    }
+    .grid-md-10{
+        width: calc(100% / 12 * 10);
+    }
+    .grid-md-11{
+        width: calc(100% / 12 * 11);
+    }
+    .grid-md-12{
+        width: calc(100% / 12 * 12);
+    }
+    /*=================================== 平板(橫向)板設計開始 ===================================*/
+    /*Header 設計*/
+    header{
+        width: 100%;
+    }
+    header .flex #logo{
+        width: 30%;
+        padding-left: 0;/*針對iphone*/
+        text-align: start;
+    }
+    header .flex menu{
+        height: auto!important;
+        transition: none;/*強制關轉場*/
+        width: 70%;
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+    header .flex menu ul{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+    }
+    header .flex menu ul li a{
+        padding: 0 1em;
+    }
+    header .flex nav{
+        display: none;
+    }
+
+    /*About設計*/
+    #about .flex{
+        justify-content: space-between;
+    }
+    #about .flex .grid-md-6{
+        max-width: 580px;
+    }
+    #about .flex .grid-md-4{
+        max-width: 390px;
+    }
+    /*Product設計*/
+    #product{
+        width: 100%;
+    }
+    #product .flex .grid-6{
+        background-image: radial-gradient(#818181,black 70%);
+    }
+    #product .flex .grid-6 h3{
+        bottom: -2.5em;
+        transition: var(--transition--);
+    }
+    #product .flex .grid-6 img{
+        filter: brightness(0.5) opacity(0.5);
+        transition: var(--transition--);
+    }
+    #product .flex .grid-6:hover h3{
+        bottom: 0;
+    }
+    #product .flex .grid-6:hover img{
+        filter: brightness(1) opacity(1);
+    }
+    /* Link設計 *//* Link設計 *//* Link設計 *//* Link設計 *//* Link設計 */
+    #link{
+        width: 100%;
+        height: 50vh;
+    }
+    /* Video 設計 */  /* Video 設計 */  /* Video 設計 */  /* Video 設計 */
+    #video{
+        width: 100%;
+    }
+    #video .flex .grid-7 .push{
+        opacity: 0;
+        margin-left: -200px;
+        transition: var(--transition--);
+    }
+    #video .flex .grid-7:hover .push{
+        opacity: 1;
+        margin-left: 0;
+    }
+
+ /*Contact 設計*/ /*Contact 設計*/ /*Contact 設計*/ /*Contact 設計*/ /*Contact 設計*/
+    #contact .flex{
+        justify-content: space-evenly;
+    }
+    #contact .flex .grid-10{
+        padding: 4em 0;
+    }
+
+
+    /*Footer 設計*/  /*Footer 設計*/  /*Footer 設計*/  /*Footer 設計*/  
+    footer br{
+        display: none;
+    }
+
+    }
+
+
+@media only screen and (min-width: 1366px){
+    /*預設格點(桌機板)*/
+    .grid-lg-1{
+        width: calc(100% / 12 * 1);
+    }
+    .grid-lg-2{
+        width: calc(100% / 12 * 2);
+    }
+    .grid-lg-3{
+        width: calc(100% / 12 * 3);
+    }
+    .grid-lg-4{
+        width: calc(100% / 12 * 4);
+    }
+    .grid-lg-5{
+        width: calc(100% / 12 * 5);
+    }
+    .grid-lg-6{
+        width: calc(100% / 12 * 6);
+    }
+    .grid-lg-7{
+        width: calc(100% / 12 * 7);
+    }
+    .grid-lg-8{
+        width: calc(100% / 12 * 8);
+    }
+    .grid-lg-9{
+        width: calc(100% / 12 * 9);
+    }
+    .grid-lg-10{
+        width: calc(100% / 12 * 10);
+    }
+    .grid-lg-11{
+        width: calc(100% / 12 * 11);
+    }
+    .grid-lg-12{
+        width: calc(100% / 12 * 12);
+    }
+    /*=================================== 桌機板設計開始 ===================================*/
+    /*Hot 設計*/
+    #hot{
+        width: 100%;
+    }
+    #hot .flex{
+        height: 100vh;
+        justify-content: space-between;
+        align-content: space-evenly;
+    }
+    #hot .flex .grid-10{
+        padding: 0;
+    }
+}
+
