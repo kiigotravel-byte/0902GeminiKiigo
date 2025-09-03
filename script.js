@@ -150,34 +150,19 @@ function handleKeyPress(event) {
   }
 }
 
-// 發送用戶消息
-function sendMessage() {
+// 發送用戶消息 (修正後的程式碼)
+async function sendMessage() {
   const input = document.getElementById('chatInput');
   const message = input.value.trim();
-  
+
   if (message === '') return;
-  
-  // 添加用戶消息
+
   addMessage(message, 'user');
   input.value = '';
-  
-  // 顯示打字指示器
-  showTypingIndicator();
-  
-  // 模擬 AI 回應 替換為實際 API 呼叫）
-  async function sendMessage() {
-  const input = document.getElementById('chatInput');
-  const message = input.value.trim();
-  
-  if (message === '') return;
-  
-  addMessage(message, 'user');
-  input.value = '';
-  
+
   showTypingIndicator();
 
   try {
-    // ✅ 呼叫後端
     const res = await fetch('https://kiigo-ai-api.onrender.com/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -192,7 +177,6 @@ function sendMessage() {
     hideTypingIndicator();
     addMessage("抱歉，伺服器連線失敗。", "bot");
   }
-}
 }
 
 // 添加消息到聊天視窗
